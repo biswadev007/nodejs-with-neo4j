@@ -1,0 +1,55 @@
+<html>
+<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/cyborg/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GKugkVcT8wqoh3M8z1lqHbU+g6j498/ZT/zuXbepz7Dc09/otQZxTimkEMTkRWHP" crossorigin="anonymous">
+<h3>Add Movie</h3>
+<form method="POST" action="/movie/add">
+    <input type="text" name="movie_name" placeholder="Movie Name"><br>
+    <input type="submit" value="Add Movie">
+</form>
+
+<h3>Add Actor</h3>
+<form method="POST" action="/actor/add">
+    <input type="text" name="actor_name" placeholder="Actors Name"><br>
+    <input type="submit" value="Add Actor">
+</form>
+
+<h3>Add Actor To Movie</h3>
+<form method="POST" action="/movie/actor/add">
+    <input type="text" name="movie_name" placeholder="Movie Name"><br><br>
+    <input type="text" name="actor_name" placeholder="Actors Name"><br>
+    <input type="submit" value="Add Relation">
+</form>
+
+<h3>Delete Movie</h3>
+<form method="POST" action="/movie/delete">
+    <input type="text" name="movie_name" placeholder="Movie Name"><br>
+    <input type="submit" value="Delete Movie">
+</form>
+
+<h3>Delete Actor</h3>
+<form method="POST" action="/actor/delete">
+    <input type="text" name="actor_name" placeholder="Actor Name"><br>
+    <input type="submit" value="Delete Actor">
+</form>
+
+<% if(locals.message){ %>
+    <h1><%= message[0] %></h1>
+  <% } else{ %>  
+    <h1><%= null %></h1>
+ <% } %>
+
+<h1>Movies</h1>
+<ul>
+    <% movies.map(movie => { %>
+        <li><%= movie.name %></li>
+    <% }) %>
+</ul>
+
+<h1>Actors</h1>
+<ul>
+    <% actors.map(actor => { %>
+    <li><%= actor.name %></li>
+    <% }) %>
+</ul>
+
+</html>
